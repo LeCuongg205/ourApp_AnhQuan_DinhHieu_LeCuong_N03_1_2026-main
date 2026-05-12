@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/widget/bottom_navigation.dart';
 
 class ContentPage extends StatelessWidget {
   const ContentPage({super.key});
@@ -62,21 +63,12 @@ class ContentPage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: AppBottomNavigation(
         currentIndex: 1,
         onTap: (index) {
-          if (index == 0) {
-            Navigator.pushReplacementNamed(context, '/home');
-          } else if (index == 2) {
-            Navigator.pushReplacementNamed(context, '/contact');
-          }
+          Navigator.pushReplacementNamed(context, ['/home','/content','/contact'][index]);
         },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.info), label: 'Content'),
-          BottomNavigationBarItem(icon: Icon(Icons.contacts), label: 'About'),
-        ],
-      ),
+      ),//AppBottomNavigation
     );
   }
 }

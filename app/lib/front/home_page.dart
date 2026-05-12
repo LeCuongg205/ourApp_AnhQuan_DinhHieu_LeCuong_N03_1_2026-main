@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:app/widget/bottom_navigation.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -108,21 +108,14 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0, // Home
+      bottomNavigationBar: AppBottomNavigation(
+        currentIndex: 0,
         onTap: (index) {
-          if (index == 1) {
-            Navigator.pushReplacementNamed(context, '/content');
-          } else if (index == 2) {
-            Navigator.pushReplacementNamed(context, '/contact');
-          }
+          Navigator.pushReplacementNamed(context, ['/home','/content','/contact'][index]);
         },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.info), label: 'Content'),
-          BottomNavigationBarItem(icon: Icon(Icons.contacts), label: 'About'),
-        ],
       ),
+
+
     );
   }
 

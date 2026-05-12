@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/widget/bottom_navigation.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});
@@ -169,6 +170,12 @@ class _AboutPageState extends State<AboutPage> {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: AppBottomNavigation(
+        currentIndex: 2,
+        onTap: (index) {
+          Navigator.pushReplacementNamed(context, ['/home','/content','/contact'][index]);
+        },
       ),
     );
   }
