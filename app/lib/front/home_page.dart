@@ -114,8 +114,6 @@ class HomePage extends StatelessWidget {
           Navigator.pushReplacementNamed(context, ['/home','/content','/contact'][index]);
         },
       ),
-
-
     );
   }
 
