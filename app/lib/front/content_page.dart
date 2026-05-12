@@ -10,35 +10,7 @@ class ContentPage extends StatelessWidget {
       body: Column(
         children: [
           //Header
-          Padding(
-              padding: const EdgeInsets.only(
-                top: 20,
-                left: 16,
-                right: 16,
-                bottom: 8,
-              ),
-              child: Container(
-                width: double.infinity,
-                height: MediaQuery.of(context).size.width * 0.1,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(5),
-                  border: Border.all(
-                    color: Colors.grey.shade300,
-                    width: 0.5,
-                  ),
-                ),
-                clipBehavior: Clip.antiAlias,
-                child: Image.asset(
-                  'assets/group_avatar.png',
-                  width: double.infinity,
-                  height: double.infinity,
-                  fit: BoxFit.contain,
-                  errorBuilder: (context, error, stackTrace) =>
-                      const FlutterLogo(size: 10),
-                ),
-              ),
-            ),
+          _NavBar(),
           // Body
           Expanded(
             child: Center(
@@ -49,18 +21,7 @@ class ContentPage extends StatelessWidget {
             ),
           ),
           // Footer
-          Container(
-            width: double.infinity,
-            color: Colors.grey[200],
-            padding: const EdgeInsets.symmetric(vertical: 12),
-            child: Column(
-              children: const [
-                Text('Phenikaa University', style: TextStyle(fontWeight: FontWeight.bold)),
-                SizedBox(height: 4),
-                Text('Nhóm: Anh Quân, Đình Hiếu, Lê Cường'),
-              ],
-            ),
-          ),
+          _Footer(),
         ],
       ),
       bottomNavigationBar: AppBottomNavigation(
